@@ -6,6 +6,13 @@ Network calculator for subnet mask and other classless (CIDR) network informatio
 [![GoDoc](https://godoc.org/github.com/brotherpowers/ipsubnet?status.svg)](https://github.com/brotherpowers/ipsubnet)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/brotherpowers/ipsubnet)
 
+# This is a fork
+This is a fork from [https://github.com/brotherpowers/ipsubnet](https://www.github.com/brotherpowers/ipsubnet)
+
+I would do a pull request but that breaks the API. I converted all int to int64 so that it would compile on 32 bit system. Calls to ipsubnet need to be int64 and not int, and would break code for people using this. So I kept it separate, but wanted to give credit to the person that made it. 
+
+I've not done extensive tests or even changed ip_test.go -- it works for what I need it to do,  and I have to move on with the project I had to make this change for instead of further development. 
+
 ### Calculations
  * IP address network subnet masks, network and host portions, and provides aggregated reports.
  * Subnet mask
@@ -23,13 +30,13 @@ Provides each data in dotted quads, hexadecimal, and binary formats, as well as 
 ### Install
 
 ```go
-go get -u github.com/brotherpowers/ipsubnet
+go get -u github.com/rmasci/ipsubnet
 ```
 
 ### Get Started
 
 ```go
-import "github.com/brotherpowers/ipsubnet"
+import "github.com/rmasci/ipsubnet"
 
 sub := ipsubnet.SubnetCalculator("192.168.112.203", 23)
 ```
