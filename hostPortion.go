@@ -24,10 +24,10 @@ func (s *Ip) GetHostPortionBinary() string {
 func (s *Ip) hostCalculation(format, separator string) string {
 	splits := s.GetIPAddressQuads()
 	networkQuards := []string{}
-	networkQuards = append(networkQuards, fmt.Sprintf(format, splits[0] & ^(s.subnet_mask>>24)))
-	networkQuards = append(networkQuards, fmt.Sprintf(format, splits[1] & ^(s.subnet_mask>>16)))
-	networkQuards = append(networkQuards, fmt.Sprintf(format, splits[2] & ^(s.subnet_mask>>8)))
-	networkQuards = append(networkQuards, fmt.Sprintf(format, splits[3] & ^(s.subnet_mask>>0)))
+	networkQuards = append(networkQuards, fmt.Sprintf(format, splits[0] & ^(s.subnet_mask>>int64(24))))
+	networkQuards = append(networkQuards, fmt.Sprintf(format, splits[1] & ^(s.subnet_mask>>int64(16))))
+	networkQuards = append(networkQuards, fmt.Sprintf(format, splits[2] & ^(s.subnet_mask>>int64(8))))
+	networkQuards = append(networkQuards, fmt.Sprintf(format, splits[3] & ^(s.subnet_mask>>int64(0))))
 
 	return strings.Join(networkQuards, separator)
 }

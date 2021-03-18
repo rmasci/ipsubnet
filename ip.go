@@ -4,8 +4,8 @@ import "strconv"
 
 type Ip struct {
 	ip          string
-	networkSize int
-	subnet_mask int
+	networkSize int64
+	subnet_mask int64
 }
 
 func SubnetCalculator(ip string, networkSize int) *Ip {
