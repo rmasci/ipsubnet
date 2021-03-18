@@ -9,7 +9,7 @@ func (s *Ip) GetNetworkPortion() string {
 	return s.networkCalculation("%d", ".")
 }
 
-func (s *Ip) GetNetworkPortionQuards() []int {
+func (s *Ip) GetNetworkPortionQuards() []int64 {
 	return convertQuardsToInt(strings.Split(s.networkCalculation("%d", "."), "."))
 }
 

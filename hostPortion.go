@@ -9,7 +9,7 @@ func (s *Ip) GetHostPortion() string {
 	return s.hostCalculation("%d", ".")
 }
 
-func (s *Ip) GetHostPortionQuards() []int {
+func (s *Ip) GetHostPortionQuards() []int64 {
 	return convertQuardsToInt(strings.Split(s.hostCalculation("%d", "."), "."))
 }
 

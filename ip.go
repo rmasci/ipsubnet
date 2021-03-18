@@ -8,7 +8,7 @@ type Ip struct {
 	subnet_mask int64
 }
 
-func SubnetCalculator(ip string, networkSize int) *Ip {
+func SubnetCalculator(ip string, networkSize int64) *Ip {
 
 	s := &Ip{
 		ip:          ip,
@@ -19,11 +19,12 @@ func SubnetCalculator(ip string, networkSize int) *Ip {
 	return s
 }
 
-func convertQuardsToInt(splits []string) []int {
-	quardsInt := []int{}
+func convertQuardsToInt(splits []string) []int64 {
+	quardsInt := []int64{}
 
 	for _, quard := range splits {
-		j, err := strconv.Atoi(quard)
+		//j, err := strconv.Atoi64(quard)
+		j, err := strconv.ParseInt(quard, 10, 64)
 		if err != nil {
 			panic(err)
 		}
